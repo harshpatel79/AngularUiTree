@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css">
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+</head>
+<body class="container" ng-app="myapp" ng-controller="basicUiTree">
+    <script type="text/ng-template" id="nodes_renderer.html">
+      <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'textbox'">
+        {{node.title}} 
+        <p><input type="text" name="fname"></p>
+      </div>
+      <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'textarea'">
+        {{node.title}}
+        <p><textarea rows="4" cols="30"></textarea></p>
+      </div>
+      <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'checkbox'">
+        {{node.title}}
+        <p><input type="checkbox" name="vehicle" value="Bike"></p>
+      </div>
+      <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'radiobutton'">
+        {{node.title}}
+        <p><input type="radio" name="gender" value="male" checked> Male<br><input type="radio" name="gender" value="female"> Female<br><input type="radio" name="gender" value="other"> Other<br/></p>
+      </div>
+    </script>
+	<div class="row">
+        <h1>Angular Ui tree</h1>
+        <hr/>
+        <div class="col-md-6">
+            <div ui-tree id="tree-root">
+              <ol ui-tree-nodes ng-model="data">
+                <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+              </ol>
+            </div>
+        </div>
+        <div class="col-md-6">
+        	 <pre class="code">{{ data | json }}</pre>
+        </div>
+  </div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>    
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="js/directive.js"></script>
+<script type="text/javascript" src="js/controller.js"></script>	
+</body>
+</html>
