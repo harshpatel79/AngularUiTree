@@ -6,24 +6,24 @@
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
 </head>
 <body class="container" ng-app="myapp" ng-controller="basicUiTree">
-    <script type="text/ng-template" id="nodes_renderer.html">
-      <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'textbox'">
-        {{node.title}} 
-        <p><input type="text" name="fname"></p>
-      </div>
-      <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'textarea'">
-        {{node.title}}
-        <p><textarea rows="4" cols="30"></textarea></p>
-      </div>
-      <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'checkbox'">
-        {{node.title}}
-        <p><input type="checkbox" name="vehicle" value="Bike"></p>
-      </div>
-      <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'radiobutton'">
-        {{node.title}}
-        <p><input type="radio" name="gender" value="male" checked> Male<br><input type="radio" name="gender" value="female"> Female<br><input type="radio" name="gender" value="other"> Other<br/></p>
-      </div>
-    </script>
+  <script type="text/ng-template" id="nodes_renderer.html">
+    <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'textbox'">
+      {{node.title}} 
+      <p><input type="text" name="fname"></p>
+    </div>
+    <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'textArea'">
+      {{node.title}}
+      <p><textarea rows="4" cols="30"></textarea></p>
+    </div>
+    <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'checkbox'">
+      {{node.title}}
+      <p><input type="checkbox" name="vehicle" value="Bike"></p>
+    </div>
+    <div ui-tree-handle class="tree-node tree-node-content" ng-show="node.title == 'radiobutton'">
+      {{node.title}}
+      <p><input type="radio" name="gender" value="male" checked> Male<br><input type="radio" name="gender" value="female"> Female<br><input type="radio" name="gender" value="other"> Other<br/></p>
+    </div>
+  </script>
 	<div class="row">
         <h1>Angular Ui tree</h1>
         <hr/>
@@ -35,7 +35,17 @@
             </div>
         </div>
         <div class="col-md-6">
-        	 <pre class="code">{{ data | json }}</pre>
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h3 class="panel-title">Form components</h3>
+              </div>
+              <div class="components">
+                 <formcomponents ng-repeat="component in components"  add-Component="addComponent" component="{{component}}"></formcomponents>
+              </div>
+          </div>
+          <div class="displaycode">
+            <pre class="code">{{ data | json }}</pre>
+          </div>
         </div>
   </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.2/jquery.min.js"></script>

@@ -1,19 +1,15 @@
 myapp.controller("basicUiTree",['$scope',function($scope){
-    $scope.data = [{
-      'id': 1,
-      'title': 'textbox',
-      'nodes': []
-    }, {
-      'id': 2,
-      'title': 'textarea',
-      'nodes': []
-    }, {
-      'id': 3,
-      'title': 'checkbox',
-      'nodes': []
-    }, {
-      'id': 4,
-      'title': 'radiobutton',
-      'nodes': []
-    }];
+    $scope.uniqueId = 0 ;
+    $scope.data = [];
+    $scope.components = ["textbox","textArea","checkbox","radiobutton"];
+    $scope.addComponent = function(fields){
+      $scope.$apply(function(){
+        $scope.data.push({
+          id: $scope.data.length+1,
+          title: fields.title,
+          component: fields,
+          nodes: []
+        });
+      },true);
+    };
 }]);
